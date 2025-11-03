@@ -27,11 +27,11 @@ export const approveLoan = asyncHandler(async (req, res) => {
   if (!loan) return res.status(404).json({ message: "Loan not found" });
 
   // Send email notification
-  // await sendEmail(
-   // loan.email,
-   // "Loan Approved ✅",
-   // `Hi ${loan.fullname},\n\nYour loan application has been approved!\n\nAmount: ${loan.amount}\nStatus: ${loan.status}\n\n- LoanApp Team`
-  //);
+  await sendEmail(
+    loan.email,
+    "Loan Approved ✅",
+    `Hi ${loan.fullname},\n\nYour loan application has been approved!\n\nAmount: ${loan.amount}\nStatus: ${loan.status}\n\n- LoanApp Team`
+  );
 
   loan.status = "approved";
   await loan.save();
@@ -45,11 +45,11 @@ export const rejectLoan = asyncHandler(async (req, res) => {
   if (!loan) return res.status(404).json({ message: "Loan not found" });
 
   // Send email notification
- // await sendEmail(
-  //  loan.email,
-   // "Loan Rejected ❌",
-   // `Hi ${loan.fullname},\n\nWe regret to inform you that your loan application has been rejected.\n\n- LoanApp Team`
-  //);
+  await sendEmail(
+    loan.email,
+    "Loan Rejected ❌",
+    `Hi ${loan.fullname},\n\nWe regret to inform you that your loan application has been rejected.\n\n- LoanApp Team`
+  );
   
   loan.status = "rejected";
   await loan.save();
