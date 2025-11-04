@@ -13,7 +13,7 @@ const app = express();
 
 // ✅ Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://127.0.0.1:5501" , "https://yourapp.onrender.com/api/users/test" , "https://loan-frontend-da3m.onrender.com"],
+  origin: ["http://localhost:5173", "http://127.0.0.1:5501" , "https://loan-backend-xahc.onrender.com/api/users/test" , "https://loan-frontend-da3m.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
